@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load bootstrap3 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <meta charset="UTF-8">
+    <title>Guest Manager</title>
+</head>
+<body role="document">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand"style="color: white">Guest Manage System</a>
+        </div>
+
+    </div>
+</nav>
+
+<div class="container">
+    <div class="page-header" style="padding-top: 80px;">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-heading text-center">
+                        <h2>登录</h2>
+                    </div>
+                    <div class="panel-body" style="padding-top: 40px;">
+                        <form class="form-horizontal" role="form" method="POST"
+                              action="/login_action/">
+                            <input type="hidden" name="_token" value="UhU2zcFLvaV7fjqzFePkWEbuH5DzHZKOqfNIfHSv">
+
+                            <div class="form-group">
+                                <label for="email" class="col-md-4 control-label">用户名</label>
+
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" name="username" value=""
+                                           required autofocus>
+
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="password" class="col-md-4 control-label">密码</label>
+
+                                <div class="col-md-6">
+                                    <input type="password" class="form-control" name="password"
+                                           required>
+
+                                </div>
+                            </div>
+                            {{ error }} <br>
+
+                            <div class="form-group">
+                                <div class="col-md-8 col-md-offset-4">
+                                    <button type="submit" class="btn btn-primary">
+                                        登录
+                                    </button>
+
+                                    <a class="btn btn-link " href="#">
+                                        忘记密码
+                                    </a>
+                                     <a class="btn btn-link col-md-offset-4" href="/login_in/">
+                                        注册
+                                    </a>
+                                </div>
+                            </div>
+                            {% csrf_token %}
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {#    <form method="post" action="/login_action/">#}
+    {#        <div class="col-md-6">#}
+    {#            <input name="username" type="text" placeholder="用户名"class="form-control"style="margin-right: 50px;margin-left: 50px;"><br>#}
+    {#        </div>h#}
+    {#        <div class="form-group">#}
+    {#            <input name="password" type="password" placeholder="密码"width="456px" class="form-control"><br>#}
+    {#        </div>#}
+    {#        {{ error }} <br>#}
+    {#        <button id="btn" type="submit" class="btn btn-success">登录</button>#}
+    {#        <button id="btn" type="submit">登录</button>#}
+    {#        {% csrf_token %}#}
+    {#    </form>#}
+</div>
+</body>
+</html>

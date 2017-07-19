@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load bootstrap3 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <meta charset="UTF-8">
+    <title>Guest Manager</title>
+</head>
+<body role="document">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand"style="color: white" href="/event_manage/">Guset Manage Sysetem</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/event_manage/">发布会</a></li>
+                <li class="active"><a href="#">嘉宾</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">{{ user }}</a></li>
+                <li><a href="/logout/">退出</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--发布会列表-->
+<div class="row" style="padding-top: 80px;">
+    <div class="col-md-6">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>名称</th>
+                <th>手机</th>
+                <th>Email</th>
+                <th>签到</th>
+                <th>发布会</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for guest in  guests %}
+                <tr>
+                    <td>{{ guest.id }}</td>
+                    <td>{{ guest.realname }}</td>
+                    <td>{{ guest.phone }}</td>
+                    <td>{{ guest.email }}</td>
+                    <td>{{ guest.sign }}</td>
+                    <td>{{ guest.event }}</td>
+                </tr>
+
+            {% endfor %}
+
+            </tbody>
+        </table>
+        <div class="paginator">
+    <span class="step-links">
+        {% if guests.has_previous %}
+            <a href="?page={{ guests.previous_page_number }}">上一页</a>
+
+        {% endif %}
+        <span class="current">
+            {{ guests.number }} /{{ guests.paginator.num_pages }}页
+
+        </span>
+        {% if guests.has_next %}
+            <a href="?page={{ guests.next_page_number }}">下一页</a>
+
+        {% endif %}
+    </span>
+
+        </div>
+    </div>
+
+
+</div>
+
+</body>
+</html>
