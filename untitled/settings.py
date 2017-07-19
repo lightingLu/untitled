@@ -23,8 +23,8 @@ SECRET_KEY = '*df&xi^uq*3w*x3toh1v@w%55p_)(cmd5lw1w!k1ap5wv41i8e'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-ALLOWED_HOSTS = []
+#这里用来花生壳映射主机
+ALLOWED_HOSTS = ['android.hicp.net', 'localhost', '127.0.0.1']
 
 # Application definition
 
